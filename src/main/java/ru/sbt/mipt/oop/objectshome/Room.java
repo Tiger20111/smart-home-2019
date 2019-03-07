@@ -1,4 +1,7 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.objectshome;
+
+import ru.sbt.mipt.oop.objectshome.subjects.Light;
+import ru.sbt.mipt.oop.objectshome.subjects.Door;
 
 import java.util.Collection;
 

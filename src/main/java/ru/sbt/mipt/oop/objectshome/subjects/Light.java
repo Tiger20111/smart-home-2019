@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.objectshome.subjects;
 
 public class Light {
     private boolean isOn;
