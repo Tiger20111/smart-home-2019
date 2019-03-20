@@ -1,48 +1,40 @@
 package ru.sbt.mipt.oop;
 
-import com.google.gson.Gson;
 import ru.sbt.mipt.oop.enventshome.EnventDoor;
+import ru.sbt.mipt.oop.enventshome.EnventHall;
 import ru.sbt.mipt.oop.enventshome.EnventLight;
+import ru.sbt.mipt.oop.houseconditions.HouseConditionsFromFile;
 import ru.sbt.mipt.oop.sensor.SensorEvent;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-import static ru.sbt.mipt.oop.sensor.SensorEventType.*;
 
 public class Application {
 
-    public static void main(String... args) throws IOException {
-        // считываем состояние дома из файла
-        Gson gson = new Gson();
-        String json = new String(Files.readAllBytes(Paths.get("smart-home-1.js")));
-        SmartHome smartHome = gson.fromJson(json, SmartHome.class);
-        EnventLight homeLight = new EnventLight();
-        EnventDoor homeDoor = new EnventDoor();
-        ProduceNewEnvent produceEnvent = new ProduceNewEnvent();
-        // начинаем цикл обработки событий
-        SensorEvent event = produceEnvent.getNextSensorEvent();
-        while (event != null) {
-            System.out.println("Got event: " + event);
+  public static void main(String... args) throws IOException {
+    HouseCondition houseArchive = new HouseConditionsFromFile();
+    SmartHome smartHome = houseArchive.getHouseCondition("smart-home-1.js");
 
-            if (event.getType() == LIGHT_ON) {
-                homeLight.SwitchOn(smartHome, event);
-            }
-            if (event.getType() == LIGHT_OFF) {
-                homeLight.SwitchOff(smartHome, event);
-            }
+    EnventHome homeLight = new EnventLight();
+    EnventHome homeDoor = new EnventDoor();
+    EnventHome homeHall = new EnventHall();
 
-            if (event.getType() == DOOR_OPEN) {
-             homeDoor.SwitchOn(smartHome, event);
-            }
+    EnventHandler handler = new EnventHandler();
+    handler.addEnvent(homeDoor);
+    handler.addEnvent(homeLight);
+    handler.addEnvent(homeHall);
 
-            if (event.getType() == DOOR_CLOSED) {
-                homeDoor.SwitchOff(smartHome, event);
-            }
+    runEnvents(handler, smartHome);
+  }
 
-            event = produceEnvent.getNextSensorEvent();
-        }
+
+  private static void runEnvents(EnventHandler handler, SmartHome smartHome) {
+    ProducerInvents produceEnvent = new ProduceNewEnventRandomly();
+    SensorEvent event = produceEnvent.getNextSensorEvent();
+    while (event != null) {
+      System.out.println("Got event: " + event);
+      handler.processEnvent(smartHome, event);
+      event = produceEnvent.getNextSensorEvent();
     }
+  }
 
 }
