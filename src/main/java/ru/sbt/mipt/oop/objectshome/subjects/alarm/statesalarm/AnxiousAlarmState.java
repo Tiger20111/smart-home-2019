@@ -8,7 +8,7 @@ public class AnxiousAlarmState implements AlarmState{
 
   public AnxiousAlarmState(Alarm alarmHouse, Code newCode) {
     alarm = alarmHouse;
-    code.setCode(newCode.getCode());
+    alarm.setCode(newCode);
   }
 
   @Override
@@ -18,12 +18,13 @@ public class AnxiousAlarmState implements AlarmState{
 
   @Override
   public void deactivateAlarm(Code password) {
-    if ((password.getCode()).equals(code.getCode())){
+    if ((password.getCode()).equals((alarm.getCode()).getCode())){
       AlarmState newState = new DeactiveAlarmState(alarm);
       alarm.changeState(newState);
       System.out.println("Alarm deactivated");
     } else {
       System.out.println("The password is wrong!");
+      alarm.turnOnAlert();
     }
   }
 
@@ -32,7 +33,6 @@ public class AnxiousAlarmState implements AlarmState{
     return alarm.getState();
   }
 
-  private Code code;
   private Alarm alarm;
 
 }

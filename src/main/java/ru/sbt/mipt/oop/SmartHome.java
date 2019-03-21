@@ -20,6 +20,7 @@ public class SmartHome implements Actionable{
 
   public SmartHome() {
     rooms = new ArrayList<>();
+    alarm = new Alarm();
   }
 
   public SmartHome(Collection<Room> rooms) {
@@ -51,6 +52,4 @@ public class SmartHome implements Actionable{
 
   Collection<Room> rooms;
   private Alarm alarm;
-
-
 }

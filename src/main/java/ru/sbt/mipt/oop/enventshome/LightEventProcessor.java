@@ -39,7 +39,7 @@ public class LightEventProcessor implements EventProcessor {
       case LIGHT_ON:
         switchOn(light, event);
         break; //не уверен, что нужно, вдруг DOOR_OPEN == DOOR_CLOSE = 1
-      case DOOR_CLOSED:
+      case LIGHT_OFF:
         switchOff(light, event);
         break;
       default:

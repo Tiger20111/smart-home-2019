@@ -1,9 +1,11 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.enventshome.AlarmEventProcessor;
 import ru.sbt.mipt.oop.enventshome.DoorEventProcessor;
 import ru.sbt.mipt.oop.enventshome.HallEventProcessor;
 import ru.sbt.mipt.oop.enventshome.LightEventProcessor;
 import ru.sbt.mipt.oop.houseconditions.HouseConditionsFromFile;
+import ru.sbt.mipt.oop.objectshome.subjects.alarm.decorators.AlarmDecorator;
 import ru.sbt.mipt.oop.sensor.SensorEvent;
 
 import java.io.IOException;
@@ -17,11 +19,15 @@ public class Application {
     EventProcessor homeLight = new LightEventProcessor();
     EventProcessor homeDoor = new DoorEventProcessor();
     EventProcessor homeHall = new HallEventProcessor();
+    EventProcessor homeAlarm = new AlarmEventProcessor();
 
-    CompositeEventProcessor handler = new CompositeEventProcessor();
-    handler.addEnvent(homeDoor);
-    handler.addEnvent(homeLight);
-    handler.addEnvent(homeHall);
+    CompositeEventProcessor handl = new CompositeEventProcessor();
+    handl.addEnvent(homeDoor);
+    handl.addEnvent(homeLight);
+    handl.addEnvent(homeHall);
+    handl.addEnvent(homeAlarm);
+
+    EventProcessor handler = new AlarmDecorator(handl);
 
     runEnvents(handler, smartHome);
   }

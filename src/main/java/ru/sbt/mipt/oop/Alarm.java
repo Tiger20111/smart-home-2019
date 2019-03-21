@@ -2,6 +2,7 @@ package ru.sbt.mipt.oop;
 
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.AlarmState;
+import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.AnxiousAlarmState;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.DeactiveAlarmState;
 
 public class Alarm {
@@ -16,12 +17,16 @@ public class Alarm {
     return state;
   }
 
-  public void setCode(String newCode){
-    code.setCode(newCode);
+  public void setCode(Code newCode){
+    code = newCode;
+  }
+
+  public Code getCode(){
+    return code;
   }
 
   public void changeState(AlarmState newState){
-    this.state = newState;
+    state = newState;
   }
 
   public void activateAlarm(Code code){
@@ -32,5 +37,10 @@ public class Alarm {
     state.deactivateAlarm(code);
   }
 
-  public void turnOnAlert() {}
+  public void turnOnAlert() {
+    System.out.println("Fixed penetration.");
+    AlarmState newState = new AnxiousAlarmState(this, code);
+    this.changeState(newState);
+    System.out.println("The alarm has been set to Anxiously State!");
+  }
 }
