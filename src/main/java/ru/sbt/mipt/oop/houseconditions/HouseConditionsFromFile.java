@@ -1,7 +1,7 @@
 package ru.sbt.mipt.oop.houseconditions;
 
 import com.google.gson.Gson;
-import ru.sbt.mipt.oop.HouseCondition;
+import ru.sbt.mipt.oop.HomeState;
 import ru.sbt.mipt.oop.SmartHome;
 
 
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class HouseConditionsFromFile implements HouseCondition {
+public class HouseConditionsFromFile implements HomeState {
   @Override
   public SmartHome getHouseCondition(String path) throws IOException {
     Gson gson = new Gson();

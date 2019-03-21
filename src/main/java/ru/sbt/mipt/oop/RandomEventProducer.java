@@ -5,7 +5,7 @@ package ru.sbt.mipt.oop;
 import ru.sbt.mipt.oop.sensor.SensorEvent;
 import ru.sbt.mipt.oop.sensor.SensorEventType;
 
-class ProduceNewEnventRandomly implements ProducerInvents{
+class RandomEventProducer implements EventProducer {
   @Override
   public SensorEvent getNextSensorEvent() {
     // pretend like we're getting the events from physical world, but here we're going to just generate some random events
