@@ -2,6 +2,7 @@ package ru.sbt.mipt.oop;
 
 
 
+import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 import ru.sbt.mipt.oop.sensor.SensorEvent;
 import ru.sbt.mipt.oop.sensor.SensorEventType;
 
@@ -11,9 +12,10 @@ class RandomEventProducer implements EventProducer {
     // pretend like we're getting the events from physical world, but here we're going to just generate some random events
     if (Math.random() < 0.05) return null; // null means end of event stream
     if (Math.random() > 0.8) {
+      Code code = new Code();
+      code.setCode("" + (((int) (2 * Math.random()))));
       SensorEventType sensorEventType = SensorEventType.values()[(int) (4 + 2 * Math.random())];
-      String objectId = "" + (int) (2 * Math.random());
-      return new SensorEvent(sensorEventType, objectId);
+      return new SensorEvent(sensorEventType, code);
     } else {
       SensorEventType sensorEventType = SensorEventType.values()[(int) (4 * Math.random())];
       String objectId = "" + (int) (10 * Math.random());

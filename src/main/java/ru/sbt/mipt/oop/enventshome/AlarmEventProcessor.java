@@ -21,12 +21,11 @@ public class AlarmEventProcessor implements EventProcessor {
   public void processEvent(SmartHome smartHome, SensorEvent event) {
     if (hasEventAlarm(event)) {
       if (event.getType() == ALARM_ACTIVATE) {
-        Code newCode = new Code();
-        newCode.setCode(event.getObjectId());
+        Code newCode = event.getCode();
         smartHome.activateAlarm(newCode);
       } else {
-        Code password = new Code();
-        password.setCode(event.getObjectId());
+        Code password;
+        password = event.getCode();
         smartHome.deactivateAlarm(password);
       }
     }
