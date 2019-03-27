@@ -12,13 +12,14 @@ import static ru.sbt.mipt.oop.sensor.SensorEventType.DOOR_CLOSED;
 
 public class HallEventProcessor implements EventProcessor {
 
-  public HallEventProcessor() {
+  public HallEventProcessor(SmartHome smartHome) {
+    this.smartHome = smartHome;
     commandHall = new SensorEventType[2];
     commandHall[0] = DOOR_CLOSED;
   }
 
   @Override
-  public void processEvent(SmartHome smartHome, SensorEvent event) {
+  public void processEvent(SensorEvent event) {
     if (hasEventLight(event)) {
       closeHall(smartHome, event);
     }
@@ -61,6 +62,7 @@ public class HallEventProcessor implements EventProcessor {
   }
 
   private SensorEventType commandHall[];
+  private final SmartHome smartHome;
 }
 
 

@@ -11,14 +11,15 @@ import static ru.sbt.mipt.oop.sensor.SensorEventType.ALARM_DEACTIVATE;
 
 public class AlarmEventProcessor implements EventProcessor {
 
-  public AlarmEventProcessor() {
+  public AlarmEventProcessor(SmartHome smartHome) {
+    this.smartHome = smartHome;
     commandAlarm = new SensorEventType[2];
     commandAlarm[0] = ALARM_ACTIVATE;
     commandAlarm[1] = ALARM_DEACTIVATE;
   }
 
   @Override
-  public void processEvent(SmartHome smartHome, SensorEvent event) {
+  public void processEvent(SensorEvent event) {
     if (hasEventAlarm(event)) {
       if (event.getType() == ALARM_ACTIVATE) {
         Code newCode = event.getCode();
@@ -41,5 +42,6 @@ public class AlarmEventProcessor implements EventProcessor {
 
   private SensorEventType commandAlarm[];
 
+  private final SmartHome smartHome;
 
 }

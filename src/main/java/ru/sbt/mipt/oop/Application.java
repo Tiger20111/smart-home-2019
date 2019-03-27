@@ -16,10 +16,10 @@ public class Application {
     HomeState houseArchive = new HouseConditionsFromFile();
     SmartHome smartHome = houseArchive.getHouseCondition("smart-home-1.js");
 
-    EventProcessor homeLight = new LightEventProcessor();
-    EventProcessor homeDoor = new DoorEventProcessor();
-    EventProcessor homeHall = new HallEventProcessor();
-    EventProcessor homeAlarm = new AlarmEventProcessor();
+    EventProcessor homeLight = new LightEventProcessor(smartHome);
+    EventProcessor homeDoor = new DoorEventProcessor(smartHome);
+    EventProcessor homeHall = new HallEventProcessor(smartHome);
+    EventProcessor homeAlarm = new AlarmEventProcessor(smartHome);
 
     CompositeEventProcessor handl = new CompositeEventProcessor();
     handl.addEnvent(homeDoor);
@@ -27,7 +27,7 @@ public class Application {
     handl.addEnvent(homeHall);
     handl.addEnvent(homeAlarm);
 
-    EventProcessor handler = new AlarmDecorator(handl);
+    EventProcessor handler = new AlarmDecorator(smartHome, handl);
 
     runEnvents(handler, smartHome);
   }
@@ -38,7 +38,7 @@ public class Application {
     SensorEvent event = produceEnvent.getNextSensorEvent();
     while (event != null) {
       System.out.println("Got event: " + event);
-      handler.processEvent(smartHome, event);
+      handler.processEvent(event);
       event = produceEnvent.getNextSensorEvent();
     }
   }

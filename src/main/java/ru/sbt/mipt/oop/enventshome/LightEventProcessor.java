@@ -9,14 +9,15 @@ import static ru.sbt.mipt.oop.sensor.SensorEventType.*;
 
 public class LightEventProcessor implements EventProcessor {
 
-  public LightEventProcessor() {
+  public LightEventProcessor(SmartHome smartHome) {
     commandLight = new SensorEventType[2];
     commandLight[0] = LIGHT_ON;
     commandLight[1] = LIGHT_OFF;
+    this.smartHome = smartHome;
   }
 
   @Override
-  public void processEvent(SmartHome smartHome, SensorEvent event) {
+  public void processEvent(SensorEvent event) {
     if (hasEventLight(event)) {
       smartHome.execute(object -> {
                 if (object instanceof Light)
@@ -63,4 +64,5 @@ public class LightEventProcessor implements EventProcessor {
   }
 
   private SensorEventType commandLight[];
+  private final SmartHome smartHome;
 }

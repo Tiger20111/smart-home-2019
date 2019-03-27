@@ -1,5 +1,7 @@
 package ru.sbt.mipt.oop;
 
+import ru.sbt.mipt.oop.EventProcessor;
+import ru.sbt.mipt.oop.SmartHome;
 import ru.sbt.mipt.oop.sensor.SensorEvent;
 
 import java.util.ArrayList;
@@ -15,9 +17,9 @@ public class CompositeEventProcessor implements EventProcessor {
   }
 
   @Override
-  public void processEvent(SmartHome smartHome, SensorEvent event) {
+  public void processEvent(SensorEvent event) {
     for (EventProcessor eventProcessor : eventProcesses) {
-      eventProcessor.processEvent(smartHome, event);
+      eventProcessor.processEvent(event);
     }
   }
 
