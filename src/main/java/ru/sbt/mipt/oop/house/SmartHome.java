@@ -1,12 +1,14 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.house;
 
+import ru.sbt.mipt.oop.interfacesishouse.Action;
+import ru.sbt.mipt.oop.interfacesishouse.Actionable;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Room;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SmartHome implements Actionable{
+public class SmartHome implements Actionable {
 
   @Override
   public void execute(Action action){

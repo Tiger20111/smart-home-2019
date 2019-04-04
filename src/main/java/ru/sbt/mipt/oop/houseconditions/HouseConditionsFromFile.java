@@ -1,8 +1,8 @@
 package ru.sbt.mipt.oop.houseconditions;
 
 import com.google.gson.Gson;
-import ru.sbt.mipt.oop.HomeState;
-import ru.sbt.mipt.oop.SmartHome;
+import ru.sbt.mipt.oop.interfacesishouse.HomeState;
+import ru.sbt.mipt.oop.house.SmartHome;
 
 
 import java.io.IOException;

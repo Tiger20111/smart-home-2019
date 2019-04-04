@@ -2,9 +2,10 @@ package ru.sbt.mipt.oop;
 
 
 
+import ru.sbt.mipt.oop.commands.eventstypes.SensorEventType;
+import ru.sbt.mipt.oop.house.SensorEvent;
+import ru.sbt.mipt.oop.interfacesishouse.EventProducer;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
-import ru.sbt.mipt.oop.sensor.SensorEventType;
 
 class RandomEventProducer implements EventProducer {
   @Override

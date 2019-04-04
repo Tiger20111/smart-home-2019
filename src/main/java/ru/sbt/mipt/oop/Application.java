@@ -4,9 +4,13 @@ import ru.sbt.mipt.oop.enventshome.AlarmEventProcessor;
 import ru.sbt.mipt.oop.enventshome.DoorEventProcessor;
 import ru.sbt.mipt.oop.enventshome.HallEventProcessor;
 import ru.sbt.mipt.oop.enventshome.LightEventProcessor;
+import ru.sbt.mipt.oop.house.SensorEvent;
+import ru.sbt.mipt.oop.house.SmartHome;
 import ru.sbt.mipt.oop.houseconditions.HouseConditionsFromFile;
+import ru.sbt.mipt.oop.interfacesishouse.EventProcessor;
+import ru.sbt.mipt.oop.interfacesishouse.EventProducer;
+import ru.sbt.mipt.oop.interfacesishouse.HomeState;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.decorators.AlarmDecorator;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
 package ru.sbt.mipt.oop.objectshome.subjects.infrastructure;
 
-import ru.sbt.mipt.oop.Action;
-import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.interfacesishouse.Action;
+import ru.sbt.mipt.oop.interfacesishouse.Actionable;
 
 public class Door implements Actionable {
 

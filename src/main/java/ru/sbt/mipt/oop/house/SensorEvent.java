@@ -1,5 +1,6 @@
-package ru.sbt.mipt.oop.sensor;
+package ru.sbt.mipt.oop.house;
 
+import ru.sbt.mipt.oop.commands.eventstypes.SensorEventType;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 
 public class SensorEvent {
@@ -35,4 +36,5 @@ public class SensorEvent {
             ", objectId='" + objectId + '\'' +
             '}';
   }
+
 }
