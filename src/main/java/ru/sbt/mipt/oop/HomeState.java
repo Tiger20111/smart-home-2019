@@ -2,6 +2,6 @@ package ru.sbt.mipt.oop;
 
 import java.io.IOException;
 
-public interface HouseCondition {
+public interface HomeState {
   SmartHome getHouseCondition(String path) throws IOException;
 }

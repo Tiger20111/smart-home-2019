@@ -2,9 +2,9 @@ package ru.sbt.mipt.oop;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import ru.sbt.mipt.oop.objectshome.subjects.Door;
-import ru.sbt.mipt.oop.objectshome.subjects.Light;
-import ru.sbt.mipt.oop.objectshome.Room;
+import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Door;
+import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Light;
+import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Room;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
