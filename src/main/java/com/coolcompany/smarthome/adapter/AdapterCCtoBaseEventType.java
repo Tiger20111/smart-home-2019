@@ -7,7 +7,7 @@ import ru.sbt.mipt.oop.commands.eventstypes.SensorEventType;
 public class AdapterCCtoBaseEventType extends SensorEvent {
 
   public AdapterCCtoBaseEventType (CCSensorEvent event) {
-    super(changeTypeEvent(event), event.getObjectId());
+    super(changeTypeEvent(event), event.getObjectId(), null);
   }
 
   private static SensorEventType changeTypeEvent (CCSensorEvent envent) {

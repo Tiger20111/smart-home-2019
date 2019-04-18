@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop;
+package ru.sbt.mipt.oop.adapter;
 
 
 
@@ -15,12 +15,12 @@ class RandomEventProducer implements EventProducer {
     if (Math.random() > 0.8) {
       Code code = new Code();
       code.setCode("" + (((int) (2 * Math.random()))));
-      SensorEventType sensorEventType = SensorEventType.values()[(int) (4 + 2 * Math.random())];
-      return new SensorEvent(sensorEventType, code);
+      SensorEventType sensorEventType = SensorEventType.values()[(int) (6 + 2 * Math.random())];
+      return new SensorEvent(sensorEventType, "1", code);
     } else {
       SensorEventType sensorEventType = SensorEventType.values()[(int) (4 * Math.random())];
       String objectId = "" + (int) (10 * Math.random());
-      return new SensorEvent(sensorEventType, objectId);
+      return new SensorEvent(sensorEventType, objectId, null);
     }
   }
 }

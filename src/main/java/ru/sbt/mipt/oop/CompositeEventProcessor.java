@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class CompositeEventProcessor implements EventProcessor {
-  CompositeEventProcessor() {
+  public CompositeEventProcessor() {
     eventProcesses = new ArrayList<>();
   }
 

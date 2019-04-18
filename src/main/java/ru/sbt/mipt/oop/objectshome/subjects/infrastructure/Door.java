@@ -23,6 +23,10 @@ public class Door implements Actionable {
     isOpen = open;
   }
 
+  public boolean isOpen() {
+    return isOpen;
+  }
+
   private final String id;
   private boolean isOpen;
 

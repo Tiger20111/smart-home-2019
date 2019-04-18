@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class RemoteControler implements RemoteControl {
 
   public RemoteControler (SmartHome smartHome, Code code, RemoteControl remoteControlRegistr) {
-    RemoteControlInizaliaton(smartHome);
+    RemoteControlInizaliaton(smartHome, code);
     buttonCommands = RemoteControlInizaliaton(smartHome, code);
   }
 
@@ -22,25 +22,17 @@ public class RemoteControler implements RemoteControl {
   }
 
   private HashMap <String, Command> RemoteControlInizaliaton(SmartHome smartHome, Code code) {
-    HashMap<String, Command> buttonCommands = new HashMap<String, Command>();
-    Command offHallDoor = new TurnOffHallDoor(smartHome);
-    Command offHouseLight = new TurnOffHouseLight(smartHome);
-    Command onHallLight = new TurnOnHallLight(smartHome);
-    Command onHouseAlarm = new TurnOnHouseAlarm(smartHome,code);
-    Command onHouseAlert = new TurnOnHouseAlert(smartHome);
-    Command onHouseLight = new TurnOnHouseLight(smartHome);
+    HashMap<String, Command> buttonCommands = new HashMap<>();
 
-
-    buttonCommands.put("A", offHallDoor);
-    buttonCommands.put("B", offHouseLight);
-    buttonCommands.put("C", onHallLight);
-    buttonCommands.put("D", onHouseAlarm);
-    buttonCommands.put("1", onHouseAlert);
-    buttonCommands.put("2", onHouseLight);
+    buttonCommands.put("A", new TurnOffHallDoor(smartHome));
+    buttonCommands.put("B", new TurnOffHouseLight(smartHome));
+    buttonCommands.put("C", new TurnOnHallLight(smartHome));
+    buttonCommands.put("D", new TurnOnHouseAlarm(smartHome,code));
+    buttonCommands.put("1", new TurnOnHouseAlert(smartHome));
+    buttonCommands.put("2", new TurnOnHouseLight(smartHome));
 
     return buttonCommands;
   }
 
   private HashMap <String, Command>  buttonCommands;
-  private  SmartHome smartHome;
 }
