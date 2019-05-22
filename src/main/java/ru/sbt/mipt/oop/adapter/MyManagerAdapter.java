@@ -15,9 +15,9 @@ public class MyManagerAdapter implements EventsManager {
   }
 
   @Override
-  public void runEnvents() {
-    EventProducer produceEnvent = new RandomEventProducer();
-    SensorEvent event = produceEnvent.getNextSensorEvent();
+  public void runEvents() {
+    EventProducer produceEvent = new RandomEventProducer();
+    SensorEvent event = eventProducer.getNextSensorEvent();
     while (event != null) {
       System.out.println("Got event: " + event);
 
@@ -25,7 +25,7 @@ public class MyManagerAdapter implements EventsManager {
         processor.processEvent(event);
       }
 
-      event = produceEnvent.getNextSensorEvent();
+      event = eventProducer.getNextSensorEvent();
     }
   }
 
@@ -34,5 +34,12 @@ public class MyManagerAdapter implements EventsManager {
     eventProcessors.add(eventProcessor);
   }
 
+
+  @Override
+  public void setEventProducer(EventProducer eventProducer) {
+    this.eventProducer = eventProducer;
+  }
+
+  private EventProducer eventProducer;
   private List<EventProcessor> eventProcessors;
 }

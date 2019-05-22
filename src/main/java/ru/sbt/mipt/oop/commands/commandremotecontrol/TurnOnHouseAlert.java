@@ -8,14 +8,13 @@ import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.AnxiousAlarmState;
 public class TurnOnHouseAlert implements Command {
 
   public TurnOnHouseAlert(SmartHome smartHome) {
-    this.smartHome = smartHome;
+    alarm = smartHome.getAlarm();
   }
 
   @Override
   public void executeCommand() {
-    Alarm alarm = smartHome.getAlarm();
     alarm.turnOnAlert();
     }
 
-  private SmartHome smartHome;
+  private Alarm alarm;
 }

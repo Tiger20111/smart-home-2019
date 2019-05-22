@@ -7,9 +7,10 @@ import ru.sbt.mipt.oop.adapter.EventProcessorCreator;
 import ru.sbt.mipt.oop.adapter.MyManagerAdapter;
 import ru.sbt.mipt.oop.house.SmartHome;
 import ru.sbt.mipt.oop.houseconditions.HouseConditionsFromFile;
+import ru.sbt.mipt.oop.interfacesishouse.EventProducer;
 import ru.sbt.mipt.oop.interfacesishouse.EventsManager;
 import ru.sbt.mipt.oop.interfacesishouse.HomeState;
-
+import ru.sbt.mipt.oop.adapter.RandomEventProducer;
 import java.io.IOException;
 
 @Configuration
@@ -17,6 +18,8 @@ public class MyConfiguration {
 
   public MyConfiguration() throws IOException {
     HomeState houseArchive = new HouseConditionsFromFile();
+    EventProducer produceEvent = new RandomEventProducer();
+
     SmartHome smartHome = houseArchive.getHouseCondition("smart-home-1.js");
     this.smartHome = smartHome;
 
@@ -24,6 +27,7 @@ public class MyConfiguration {
 
     eventsManager = new MyManagerAdapter();
     eventsManager.setEventProcessor(eventProcessorCreator.createMyCompositeEventProcessor(smartHome));
+    eventsManager.setEventProducer(produceEvent);
   }
 
   @Bean

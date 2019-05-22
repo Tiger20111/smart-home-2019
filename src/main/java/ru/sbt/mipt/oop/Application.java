@@ -9,6 +9,6 @@ public class Application {
   public static void main(String... args) {
     AbstractApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
     EventsManager eventsManager = context.getBean(EventsManager.class);
-    eventsManager.runEnvents();
+    eventsManager.runEvents();
   }
 }

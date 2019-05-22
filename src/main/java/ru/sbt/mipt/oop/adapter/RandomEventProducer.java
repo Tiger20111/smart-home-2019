@@ -7,7 +7,7 @@ import ru.sbt.mipt.oop.house.SensorEvent;
 import ru.sbt.mipt.oop.interfacesishouse.EventProducer;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 
-class RandomEventProducer implements EventProducer {
+public class RandomEventProducer implements EventProducer {
   @Override
   public SensorEvent getNextSensorEvent() {
     // pretend like we're getting the events from physical world, but here we're going to just generate some random events
