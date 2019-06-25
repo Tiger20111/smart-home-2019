@@ -1,14 +1,13 @@
 package ru.sbt.mipt.oop;
 
-import ru.sbt.mipt.oop.EventProcessor;
-import ru.sbt.mipt.oop.SmartHome;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
+import ru.sbt.mipt.oop.house.SensorEvent;
+import ru.sbt.mipt.oop.interfacesishouse.EventProcessor;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class CompositeEventProcessor implements EventProcessor {
-  CompositeEventProcessor() {
+  public CompositeEventProcessor() {
     eventProcesses = new ArrayList<>();
   }
 

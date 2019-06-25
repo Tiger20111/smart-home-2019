@@ -1,11 +1,14 @@
 package ru.sbt.mipt.oop.objectshome.subjects.alarm.decorators;
 
-import ru.sbt.mipt.oop.*;
+import ru.sbt.mipt.oop.commands.eventstypes.CommandHomeType;
+import ru.sbt.mipt.oop.house.Alarm;
+import ru.sbt.mipt.oop.house.SmartHome;
+import ru.sbt.mipt.oop.interfacesishouse.EventProcessor;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.ActiveAlarmState;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.AnxiousAlarmState;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm.DeactiveAlarmState;
 import ru.sbt.mipt.oop.CompositeEventProcessor;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
+import ru.sbt.mipt.oop.house.SensorEvent;
 
 public class AlarmDecorator implements EventProcessor {
 

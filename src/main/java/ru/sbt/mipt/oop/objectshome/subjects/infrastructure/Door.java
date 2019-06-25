@@ -1,7 +1,7 @@
 package ru.sbt.mipt.oop.objectshome.subjects.infrastructure;
 
-import ru.sbt.mipt.oop.Action;
-import ru.sbt.mipt.oop.Actionable;
+import ru.sbt.mipt.oop.interfacesishouse.Action;
+import ru.sbt.mipt.oop.interfacesishouse.Actionable;
 
 public class Door implements Actionable {
 
@@ -21,6 +21,10 @@ public class Door implements Actionable {
 
   public void setOpen(boolean open) {
     isOpen = open;
+  }
+
+  public boolean isOpen() {
+    return isOpen;
   }
 
   private final String id;

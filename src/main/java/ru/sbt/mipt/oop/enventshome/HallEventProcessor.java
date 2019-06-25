@@ -1,14 +1,16 @@
 package ru.sbt.mipt.oop.enventshome;
 
-import ru.sbt.mipt.oop.*;
+import ru.sbt.mipt.oop.commands.eventstypes.CommandType;
+import ru.sbt.mipt.oop.house.SmartHome;
+import ru.sbt.mipt.oop.interfacesishouse.EventProcessor;
 import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Room;
 import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Door;
 import ru.sbt.mipt.oop.objectshome.subjects.infrastructure.Light;
-import ru.sbt.mipt.oop.sensor.SensorCommand;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
-import ru.sbt.mipt.oop.sensor.SensorEventType;
+import ru.sbt.mipt.oop.commands.eventstypes.SensorCommand;
+import ru.sbt.mipt.oop.house.SensorEvent;
+import ru.sbt.mipt.oop.commands.eventstypes.SensorEventType;
 
-import static ru.sbt.mipt.oop.sensor.SensorEventType.DOOR_CLOSED;
+import static ru.sbt.mipt.oop.commands.eventstypes.SensorEventType.DOOR_CLOSED;
 
 public class HallEventProcessor implements EventProcessor {
 

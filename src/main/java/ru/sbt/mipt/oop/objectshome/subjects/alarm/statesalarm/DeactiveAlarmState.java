@@ -1,6 +1,6 @@
 package ru.sbt.mipt.oop.objectshome.subjects.alarm.statesalarm;
 
-import ru.sbt.mipt.oop.Alarm;
+import ru.sbt.mipt.oop.house.Alarm;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.AlarmState;
 import ru.sbt.mipt.oop.objectshome.subjects.alarm.Code;
 

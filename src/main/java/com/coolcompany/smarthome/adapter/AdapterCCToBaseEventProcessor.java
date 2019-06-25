@@ -2,8 +2,7 @@ package com.coolcompany.smarthome.adapter;
 
 import com.coolcompany.smarthome.events.CCSensorEvent;
 import com.coolcompany.smarthome.events.EventHandler;
-import ru.sbt.mipt.oop.EventProcessor;
-import ru.sbt.mipt.oop.sensor.SensorEvent;
+import ru.sbt.mipt.oop.interfacesishouse.EventProcessor;
 
 public class AdapterCCToBaseEventProcessor implements EventHandler {
 

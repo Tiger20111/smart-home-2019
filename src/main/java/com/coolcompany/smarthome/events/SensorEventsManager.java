@@ -12,6 +12,8 @@ public class SensorEventsManager {
         this.handlers.add(handler);
     }
 
+    //public void registerEventProcessor(){}
+
     public void start() {
         CCSensorEvent event = getNextSensorEvent();
         while (event != null) {

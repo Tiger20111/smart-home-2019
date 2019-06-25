@@ -1,4 +1,4 @@
-package ru.sbt.mipt.oop.sensor;
+package ru.sbt.mipt.oop.commands.eventstypes;
 
 public enum SensorEventType {
   LIGHT_ON, LIGHT_OFF,
